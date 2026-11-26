@@ -13,4 +13,19 @@ class Garment(BaseModel):
     created_at: datetime = Field(...)
     updated_by: datetime = Field(...)
 
+class CreateGarmentRequest(BaseModel):
+    owner_id: str = Field(...)
+    category: str | None = Field(...)
+    color: str | None = Field(...)
+    brand: str | None = Field(...)
+    size: str | None = Field(...)
+    status: str | None = Field(...)
 
+class GarmentResponse(BaseModel):
+    id: str = Field(...)
+    owner_id: str = Field(...)
+    category: str | None = Field(...)
+    color: str | None = Field(...)
+    brand: str | None = Field(...)
+    size: str | None = Field(...)
+    status: str | None = Field(...)

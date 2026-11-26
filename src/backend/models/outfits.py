@@ -10,3 +10,15 @@ class Outfit(BaseModel):
     created_by: str = Field(..., examples=["usr_123"])
     created_at: datetime = Field(...,)
     updated_at: datetime = Field(...,)
+
+class CreateOutfitRequest(BaseModel):
+    owner_id: str = Field(...)
+    name: str = Field(...)
+    garments: list[Garment] = Field(...)
+
+
+class OutfitResponse(BaseModel):
+    id: str = Field(...)
+    owner_id: str = Field(...)
+    name: str = Field(...)
+    garments: list[Garment] = Field(...)

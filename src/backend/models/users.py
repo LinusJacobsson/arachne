@@ -9,3 +9,12 @@ class User(BaseModel):
     created_at: datetime = Field(...,)
     updated_at: datetime = Field(...,)
 
+
+class CreateUserRequest(BaseModel):
+    name: str = Field(..., min_length=1, max_length=30)
+    avatar_id: str = Field(...)
+
+class UserResponse(BaseModel):
+    id: str = Field(...)
+    name: str = Field(...)
+    avatar_id: str = Field(...)
