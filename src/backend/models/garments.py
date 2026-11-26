@@ -1,5 +1,7 @@
-from pydantic import BaseModel, Field
 from datetime import datetime
+
+from pydantic import BaseModel, Field
+
 
 class Garment(BaseModel):
     id: str = Field(..., examples=["gmt_123"])
@@ -13,6 +15,7 @@ class Garment(BaseModel):
     created_at: datetime = Field(...)
     updated_by: datetime = Field(...)
 
+
 class CreateGarmentRequest(BaseModel):
     owner_id: str = Field(...)
     category: str | None = Field(...)
@@ -20,6 +23,7 @@ class CreateGarmentRequest(BaseModel):
     brand: str | None = Field(...)
     size: str | None = Field(...)
     status: str | None = Field(...)
+
 
 class GarmentResponse(BaseModel):
     id: str = Field(...)

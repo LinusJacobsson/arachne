@@ -1,6 +1,8 @@
-from pydantic import BaseModel, Field
-from garments import Garment
 from datetime import datetime
+
+from garments import Garment
+from pydantic import BaseModel, Field
+
 
 class Outfit(BaseModel):
     id: str = Field(..., examples=["out_123"])
@@ -8,8 +10,13 @@ class Outfit(BaseModel):
     name: str = Field(..., min_length=1, examples=["Blue suit + white shirt"])
     garments: list[Garment] = Field(..., min_length=1, examples=[...])
     created_by: str = Field(..., examples=["usr_123"])
-    created_at: datetime = Field(...,)
-    updated_at: datetime = Field(...,)
+    created_at: datetime = Field(
+        ...,
+    )
+    updated_at: datetime = Field(
+        ...,
+    )
+
 
 class CreateOutfitRequest(BaseModel):
     owner_id: str = Field(...)
