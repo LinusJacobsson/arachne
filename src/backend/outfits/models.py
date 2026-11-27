@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from garments import Garment
+from garments.models import Garment
 from pydantic import BaseModel, Field
 
 
